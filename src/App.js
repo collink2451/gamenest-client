@@ -1,8 +1,42 @@
-import React from 'react';
+import React, { useEffect } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Main } from "./modules";
+import {
+  ErrorPage,
+  Forbidden,
+  Home,
+  PageNotFound,
+} from "./pages";
+import { PublicRoute } from "./routes";
+import { GlobalStyle } from "./styles";
+import { addWindowClass } from "./utils";
 
 function App() {
-  const value = 'World';
-  return <div>Hello {value}</div>;
+  useEffect(() => {
+    addWindowClass("dark-mode");
+    addWindowClass("layout-navbar-fixed");
+  }, []);
+
+  return (
+    <>
+      <GlobalStyle />
+      <ErrorBoundary fallbackRender={ErrorPage}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<PublicRoute />}>
+              <Route path="/" element={<Main />}>
+                <Route path="/" element={<Home />} />
+              </Route>
+            </Route>
+            <Route path="/403" element={<Forbidden />} />
+            <Route path="/404" element={<PageNotFound />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </ErrorBoundary>
+    </>
+  );
 }
 
 export default App;
