@@ -3,6 +3,8 @@ import { ErrorBoundary } from "react-error-boundary";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Main } from "./modules";
 import {
+  BattleshipGame,
+  BattleshipLobby,
   ErrorPage,
   Forbidden,
   Home,
@@ -26,6 +28,10 @@ function App() {
           <Routes>
             <Route path="/" element={<PublicRoute />}>
               <Route path="/" element={<Main />}>
+                <Route path="/battleship">
+                  <Route path="/battleship/:lobbyId" element={<BattleshipGame />} />
+                  <Route path="/battleship" element={<BattleshipLobby />} />
+                </Route>
                 <Route path="/" element={<Home />} />
               </Route>
             </Route>
