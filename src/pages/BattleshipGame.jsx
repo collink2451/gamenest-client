@@ -7,13 +7,10 @@ const BattleshipGame = () => {
     const { lobbyId } = useParams();
 
     useEffect(() => {
-        // Function to verify if the user is a part of the lobby
         verifyUserInLobby(lobbyId);
     }, [lobbyId]);
 
     const verifyUserInLobby = (lobbyId) => {
-        // Your logic to verify if the user is a part of the lobby
-        // This can be done using backend authentication
         console.log(`Verifying user in lobby ${lobbyId}`);
     };
 
