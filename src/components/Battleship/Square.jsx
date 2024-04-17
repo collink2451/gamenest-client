@@ -1,15 +1,21 @@
 import React from 'react';
 
-const Square = ({ value, onClick, state }) => {
+const Square = ({ value, onClick, state, onMouseOver, onMouseOut }) => {
     const [highlighted, setHighlighted] = React.useState(false);
 
 
-    function onMouseOver() {
+    function _onMouseOver() {
         setHighlighted(true);
+        if (onMouseOver) {
+            onMouseOver();
+        }
     }
 
-    function onMouseOut() {
+    function _onMouseOut() {
         setHighlighted(false);
+        if (onMouseOut) {
+            onMouseOut();
+        }
     }
 
     function getClasses() {
@@ -21,6 +27,8 @@ const Square = ({ value, onClick, state }) => {
             classes += " miss";
         } else if (state === "sunk") {
             classes += " sunk";
+        } else if (state === "highlighted") {
+            classes += " highlighted";
         }
 
         if (highlighted) {
@@ -31,7 +39,7 @@ const Square = ({ value, onClick, state }) => {
     }
 
     return (
-        <div className={getClasses()} onClick={onClick} onMouseOver={onMouseOver} onMouseOut={onMouseOut}>{value}</div>
+        <div className={getClasses()} onClick={onClick} onMouseOver={_onMouseOver} onMouseOut={_onMouseOut}>{value}</div>
     );
 }
 
