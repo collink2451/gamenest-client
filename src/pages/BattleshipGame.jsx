@@ -2,12 +2,16 @@ import React, { useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { Board } from '../components/Battleship';
+import { BattleshipGameStatus } from '../enums';
 
 const BattleshipGame = () => {
     const { lobbyId } = useParams();
 
+    const [gameState, setGameState] = React.useState(BattleshipGameStatus.SETUP);
+
     useEffect(() => {
         verifyUserInLobby(lobbyId);
+        setGameState(BattleshipGameStatus.SETUP);
     }, [lobbyId]);
 
     const verifyUserInLobby = (lobbyId) => {
@@ -19,48 +23,16 @@ const BattleshipGame = () => {
     const boardJson = `{
     "player1": {
         "ships": [
-            {
-                "type": "carrier",
-                "location": [0, 0],
-                "rotated": false
-            },
-            {
-                "type": "battleship",
-                "location": [2, 0],
-                "rotated": false
-            },
-            {
-                "type": "destroyer",
-                "location": [0, 8],
-                "rotated": true
-            },
-            {
-                "type": "submarine",
-                "location": [6, 0],
-                "rotated": false
-            },
-            {
-                "type": "patrol boat",
-                "location": [8, 0],
-                "rotated": false
-            }
+
         ],
         "board": [
-            [null, null, "hit", null, null, null, null, null, "hit", null],
-            [null, null, null, null, null, null, null, null, "hit", null],
-            [null, null, null, null, null, null, null, null, "hit", null],
-            [null, null, null, null, null, null, null, null, "miss", null],
-            [null, null, null, null, null, null, null, null, null, null],
-            [null, null, null, null, null, null, null, null, null, null],
-            ["hit", "hit", "hit", null, null, null, null, null, null, null],
-            [null, null, null, null, null, null, "miss", null, null, null],
-            [null, null, null, null, null, null, null, null, "miss", null],
-            ["miss", null, null, null, null, null, null, null, null, null]
+
         ]
     }
 }`;
 
     const player1 = JSON.parse(boardJson).player1;
+    player1.board = Array(10).fill().map(() => Array(10).fill(null));
     const board = player1.board;
     const ships = player1.ships;
 
@@ -74,7 +46,7 @@ const BattleshipGame = () => {
             <Row>
                 <Col lg={4} md={4} className={`d-none d-lg-block`}></Col>
                 <Col lg={4} md={8} sm={12}>
-                    <Board board={board} ships={ships} />
+                    <Board board={board} gameState={gameState} ships={ships} />
                 </Col>
             </Row>
         </Container>

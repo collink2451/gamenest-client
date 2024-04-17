@@ -3,7 +3,7 @@ import "./imports.css";
 
 const GlobalStyle = createGlobalStyle`
     .square {
-        border: 1px solid #ccc;
+        border: 1px solid #CCC;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -23,15 +23,23 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .hit {
-        background-color: #FF6347;
+        background-color: #FF0000;
     }
 
     .miss {
-        background-color: #d3d3d3;
+        background-color: #D3D3D3;
     }
 
     .sunk {
         background-color: #000;
+    }
+
+    .ship-select {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
     }
 `;
 

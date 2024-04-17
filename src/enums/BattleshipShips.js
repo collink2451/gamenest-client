@@ -23,15 +23,15 @@ const BattleshipShips = {
 
 function stringToShip(ship) {
     switch (ship) {
-        case 'carrier':
+        case 'Carrier':
             return BattleshipShips.CARRIER;
-        case 'battleship':
+        case 'Battleship':
             return BattleshipShips.BATTLESHIP;
-        case 'destroyer':
+        case 'Destroyer':
             return BattleshipShips.DESTROYER;
-        case 'submarine':
+        case 'Submarine':
             return BattleshipShips.SUBMARINE;
-        case 'patrol boat':
+        case 'Patrol Boat':
             return BattleshipShips.PATROL_BOAT;
         default:
             return null;
