@@ -142,9 +142,9 @@ const Board = ({ board, ships, gameState, onClick }) => {
                 <Row className="mt-4">
                     <Col>
                         {/* filter out ships that have already been placed */}
-                        {Object.keys(BattleshipShips).filter(ship => !ships.some(s => s.name === ship)).map(ship => {
+                        {Object.keys(BattleshipShips).map(ship => {
                             return (
-                                <button className="btn btn-secondary ship-select" key={ship} onClick={() => setSelectedShip(BattleshipShips[ship])}>{ship}</button>
+                                <button className={`btn ${selectedShip.name.toUpperCase() === ship ? "btn-primary" : "btn-secondary"} ship-select`} key={ship} onClick={() => setSelectedShip(BattleshipShips[ship])}>{ship}</button>
                             );
                         })}
                     </Col>
