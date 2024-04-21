@@ -9,6 +9,7 @@ import {
   Forbidden,
   Home,
   PageNotFound,
+  BlackjackGame,
 } from "./pages";
 import { PublicRoute } from "./routes";
 import { GlobalStyle } from "./styles";
@@ -31,6 +32,9 @@ function App() {
                 <Route path="/battleship">
                   <Route path="/battleship/:lobbyId" element={<BattleshipGame />} />
                   <Route path="/battleship" element={<BattleshipLobby />} />
+                </Route>
+                <Route path="/blackjack">
+                <Route path="/blackjack" element={<BlackjackGame />} />
                 </Route>
                 <Route path="/" element={<Home />} />
               </Route>
