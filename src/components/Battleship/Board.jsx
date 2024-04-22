@@ -41,6 +41,10 @@ const Board = ({ board, ships, gameState, onClick }) => {
         }
     }
 
+    function submitBoard() {
+        console.log(placedShips);
+    }
+
     function onCellMouseOver(rowIndex, cellIndex) {
         if (gameState === BattleshipGameStatus.SETUP) {
             setShipPlaceLocation([rowIndex, cellIndex]);
@@ -141,12 +145,14 @@ const Board = ({ board, ships, gameState, onClick }) => {
             {gameState === BattleshipGameStatus.SETUP &&
                 <Row className="mt-4">
                     <Col>
-                        {/* filter out ships that have already been placed */}
                         {Object.keys(BattleshipShips).map(ship => {
                             return (
                                 <button className={`btn ${selectedShip.name.toUpperCase() === ship ? "btn-primary" : "btn-secondary"} ship-select`} key={ship} onClick={() => setSelectedShip(BattleshipShips[ship])}>{ship}</button>
                             );
                         })}
+                    </Col>
+                    <Col>
+                        <button className="btn btn-primary" disabled={placedShips.length !== Object.keys(BattleshipShips).length} onClick={() => submitBoard()}>Submit</button>
                     </Col>
                 </Row>
             }
