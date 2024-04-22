@@ -152,7 +152,7 @@ const Board = ({ board, ships, gameState, onClick }) => {
                         })}
                     </Col>
                     <Col>
-                        <button className="btn btn-primary" disabled={placedShips.length !== Object.keys(BattleshipShips).length} onClick={() => submitBoard()}>Submit</button>
+                        <button className="btn btn-primary" disabled={placedShips.length !== Object.keys(BattleshipShips).length} onClick={submitBoard}>Submit</button>
                     </Col>
                 </Row>
             }
