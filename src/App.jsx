@@ -5,6 +5,7 @@ import { Main } from "./modules";
 import {
   BattleshipGame,
   BattleshipLobby,
+  WordleGame,
   ErrorPage,
   Forbidden,
   Home,
@@ -34,8 +35,9 @@ function App() {
                   <Route path="/battleship" element={<BattleshipLobby />} />
                 </Route>
                 <Route path="/blackjack">
-                <Route path="/blackjack" element={<BlackjackGame />} />
+                  <Route path="/blackjack" element={<BlackjackGame />} />
                 </Route>
+                <Route path="/wordle" element={<WordleGame />} />
                 <Route path="/" element={<Home />} />
               </Route>
             </Route>
