@@ -25,7 +25,7 @@ const WordleGame = () => {
         <Container>
             <Row>
                 <Col>
-                    <h1>Wordle Game</h1>
+                    <h1>Welcome to Wordle!</h1>
                     <button onClick={getWord}>Start Game</button>
                 </Col>
             </Row>
