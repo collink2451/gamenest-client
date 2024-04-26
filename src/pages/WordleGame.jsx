@@ -3,9 +3,10 @@ import { Col, Container, Row } from 'react-bootstrap';
 
 const api = 'https://random-word-api.herokuapp.com/word?length=5'
 
+
 const WordleGame = () => {
     const [word, setWord] = useState([])
-    
+
     async function getWord() {
         fetch(api)
             .then(response => response.json())
@@ -16,6 +17,7 @@ const WordleGame = () => {
 
     useEffect(() => {
         getWord()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
      }, []);
     
     
