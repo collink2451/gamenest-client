@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
+
+
+.header {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.title {
+    font-family: "Londrina Outline", sans-serif;
+    font-size: 120px;
+    font-style: normal;
+    font-weight: 400;
+}
