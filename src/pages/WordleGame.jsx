@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { Button, Container } from 'react-bootstrap';
-import '../styles/WordleStyle.css';
+import React, { useState } from 'react'
+import { Button } from 'react-bootstrap'
+import WordleBoard from './Wordle/Board'
+import '../styles/WordleStyle.css'
 
 const wordApi = 'https://random-word-api.herokuapp.com/word?length=5'
 const defnApi = 'https://api.dictionaryapi.dev/api/v2/entries/en/'      // + word
@@ -51,22 +52,22 @@ const WordleGame = () => {
         <div>
             <div className="header">
                 <h1 className="title">WORDLE</h1>
-                <div className="gameArea">
-                    { !inGame &&
-                        <Button variant="outline-success" size="xxl" onClick={startGame}>Start Game</Button>
-                    }
-                    
-                    { inGame &&
-                        <div>
-                            <h1>Game: {word}</h1>
-                            <p>This feature is under construction</p>
-                        </div>
-                    }
-                </div>
-            </div> 
+            </div>
+
+            <div className="gameArea">
+                { !inGame &&
+                    <Button variant="outline-success" size="xxl" className="mt-5" onClick={startGame}>Start Game</Button>
+                }
+                { inGame &&
+                    <div>
+                        <WordleBoard />
+                        <h1>{word}</h1>
+                    </div>
+                }
+            </div>
         </div>
-    );
-};
+    )
+}
 
 
-export default WordleGame;
+export default WordleGame
