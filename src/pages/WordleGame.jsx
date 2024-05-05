@@ -1,36 +1,73 @@
-import React, { useEffect, useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import React, { useState } from 'react'
+import { Button } from 'react-bootstrap'
+import WordleBoard from './Wordle/Board'
+import '../styles/WordleStyle.css'
 
-const api = 'https://random-word-api.herokuapp.com/word?length=5'
+const wordApi = 'https://random-word-api.herokuapp.com/word?length=5'
+const defnApi = 'https://api.dictionaryapi.dev/api/v2/entries/en/'      // + word
+
 
 
 const WordleGame = () => {
-    const [word, setWord] = useState([])
+    const [word, setWord] = useState('?????')
+    const [defn, setDefn] = useState([])
+    const [guess, setGuess] = useState("wordy")
+    const [isValid, setIsValid] = useState(false)
+    const [inGame, setInGame] = useState(false)
 
     async function getWord() {
-        fetch(api)
+        fetch(wordApi)
             .then(response => response.json())
             .then(data => setWord(data[0]))
             .catch(err => console.error("Error fetching word: ", err))
-        console.log(word)
     }
 
-    useEffect(() => {
+    async function getDefn() {
+        fetch(defnApi + guess)
+            .then(response => response.json())
+            .then((data) => {
+                setDefn(data[0].meanings[0].definitions[0].definition);
+                setIsValid(true)
+            })
+            .catch((error) => {
+                console.log(error);
+                setIsValid(false)
+              })
+
+    } 
+
+    function checkIfValid() {
+        getDefn()
+        console.log(isValid)
+        return isValid
+    }
+
+    function startGame() {
         getWord()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-     }, []);
+        setInGame(true)
+    }
     
     
     return (
-        <Container>
-            <Row>
-                <Col>
-                    <h1>Welcome to Wordle!</h1>
-                    <button onClick={getWord}>Start Game</button>
-                </Col>
-            </Row>
-        </Container>
-    );
-};
+        <div>
+            <div className="header">
+                <h1 className="title">WORDLE</h1>
+            </div>
 
-export default WordleGame;
+            <div className="gameArea">
+                { !inGame &&
+                    <Button variant="outline-success" size="xxl" className="mt-5" onClick={startGame}>Start Game</Button>
+                }
+                { inGame &&
+                    <div>
+                        <WordleBoard />
+                        <h1>{word}</h1>
+                    </div>
+                }
+            </div>
+        </div>
+    )
+}
+
+
+export default WordleGame
