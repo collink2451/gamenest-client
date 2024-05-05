@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import '../styles/WordleStyle.css';
 
 const wordApi = 'https://random-word-api.herokuapp.com/word?length=5'
@@ -12,14 +12,13 @@ const WordleGame = () => {
     const [defn, setDefn] = useState([])
     const [guess, setGuess] = useState("wordy")
     const [isValid, setIsValid] = useState(false)
+    const [inGame, setInGame] = useState(false)
 
     async function getWord() {
         fetch(wordApi)
             .then(response => response.json())
             .then(data => setWord(data[0]))
             .catch(err => console.error("Error fetching word: ", err))
-
-        console.log(checkIfValid())
     }
 
     async function getDefn() {
@@ -38,7 +37,13 @@ const WordleGame = () => {
 
     function checkIfValid() {
         getDefn()
+        console.log(isValid)
         return isValid
+    }
+
+    function startGame() {
+        getWord()
+        setInGame(true)
     }
     
     
@@ -46,16 +51,22 @@ const WordleGame = () => {
         <div>
             <div className="header">
                 <h1 className="title">WORDLE</h1>
-                <button onClick={getWord}>Start Game</button>
-                <p>Word: {word}</p> 
-                <p>Definition: {defn}</p>
-                <button onClick={checkIfValid}>Test</button>
+                <div className="gameArea">
+                    { !inGame &&
+                        <Button variant="outline-success" size="xxl" onClick={startGame}>Start Game</Button>
+                    }
+                    
+                    { inGame &&
+                        <div>
+                            <h1>Game: {word}</h1>
+                            <p>This feature is under construction</p>
+                        </div>
+                    }
+                </div>
             </div> 
-            <Container>
-            
-            </Container>
         </div>
     );
 };
+
 
 export default WordleGame;

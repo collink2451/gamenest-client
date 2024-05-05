@@ -13,3 +13,11 @@
     font-style: normal;
     font-weight: 400;
 }
+
+.btn-xxl {
+    font-size: 2.5rem !important;
+}
+
+.gameArea {
+    margin-top: 5vh;
+}
