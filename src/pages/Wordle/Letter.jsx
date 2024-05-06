@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useContext, useEffect } from "react";
+import { AppContext } from "../WordleGame";
 
-function Letter({ pos, attempt }) {
-    return <div className="letter"></div>
+function Letter({ pos, wordNum }) {
+  const { board, attempt, word } =
+    useContext(AppContext);
+
+  return (
+    <div className="letter">
+      
+    </div>
+  );
 }
 
-export default Letter
+export default Letter;
