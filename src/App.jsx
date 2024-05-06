@@ -5,12 +5,12 @@ import { Main } from "./modules";
 import {
   BattleshipGame,
   BattleshipLobby,
-  WordleGame,
+  BlackjackGame,
   ErrorPage,
   Forbidden,
   Home,
   PageNotFound,
-  BlackjackGame,
+  WordleGame
 } from "./pages";
 import { PublicRoute } from "./routes";
 import { GlobalStyle } from "./styles";

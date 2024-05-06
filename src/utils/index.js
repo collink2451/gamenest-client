@@ -1,9 +1,10 @@
 import {
     addWindowClass,
+    processResponse,
     removeWindowClass,
 } from "./helpers";
 
 export {
-    addWindowClass,
-    removeWindowClass
+    addWindowClass, processResponse, removeWindowClass
 };
+

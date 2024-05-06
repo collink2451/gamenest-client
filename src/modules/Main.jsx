@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-// import { Footer, Header, Sidebar } from "src/components/main";
+import { Header } from "../components/main";
 
 function Main() {
   return (
@@ -8,7 +8,7 @@ function Main() {
       <div className="wrapper">
         {(
           <>
-            {/* <Header /> */}
+            <Header />
             {/* <Sidebar /> */}
             <div className="content-wrapper pb-4">
               <div className="pt-3" />

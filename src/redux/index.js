@@ -1,9 +1,13 @@
 import { useAppDispatch, useAppSelector } from "./hooks";
+import { checkLogin, loggedInSelector, login, logout, userSelector } from "./slices/authSlice";
 import store from "./store";
 
 export {
-    store,
+    checkLogin,
+    loggedInSelector,
+    login,
+    logout, store,
     useAppDispatch,
-    useAppSelector
+    useAppSelector, userSelector
 };
 

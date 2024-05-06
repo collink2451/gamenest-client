@@ -1,8 +1,9 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { checkLogin, loggedInSelector, useAppDispatch, useAppSelector } from "../redux";
 
 function PrivateRoute() {
-  /* const loggedIn = useAppSelector(loggedInSelector);
+  const loggedIn = useAppSelector(loggedInSelector);
   const dispatch = useAppDispatch();
   const location = useLocation();
 
@@ -18,9 +19,7 @@ function PrivateRoute() {
     localStorage.removeItem("login-next");
   }
 
-  return loggedIn ? <Outlet /> : <Navigate to="/login" replace />; */
-
-  return <Outlet />;
+  return loggedIn ? <Outlet /> : <Navigate to="/" replace />;
 }
 
 export default PrivateRoute;
