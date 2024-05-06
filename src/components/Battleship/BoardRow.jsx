@@ -5,7 +5,7 @@ const BoardRow = ({ row, rowIndex, onClick, onMouseOver, onMouseOut }) => {
     function drawRow() {
         return row.map((cell, cellIndex) => {
             return (
-                <Square key={cellIndex} state={cell} onClick={() => onClick(rowIndex, cellIndex)} onMouseOver={() => onMouseOver(rowIndex, cellIndex)} />
+                <Square key={rowIndex + " " + cellIndex} state={cell} onClick={() => onClick(rowIndex, cellIndex)} onMouseOver={() => onMouseOver(rowIndex, cellIndex)} />
             );
         });
     }

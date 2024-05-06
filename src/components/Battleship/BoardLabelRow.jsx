@@ -4,7 +4,7 @@ const BoardLabelRow = () => {
         const letters = [" ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
         return letters.map((letter) => {
             return (
-                <div className="col square">{letter}</div>
+                <div className="col square" key={letter}>{letter}</div>
             );
         });
     }

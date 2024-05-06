@@ -127,7 +127,7 @@ const Board = ({ board, ships, gameState, onClick }) => {
         // get each row then create a BoardRow
         return boardCopy.map((row, rowIndex) => {
             return (
-                <BoardRow row={row} rowIndex={rowIndex} onClick={onCellClick} onMouseOver={onCellMouseOver} />
+                <BoardRow key={rowIndex} row={row} rowIndex={rowIndex} onClick={onCellClick} onMouseOver={onCellMouseOver} />
             );
         });
     }
