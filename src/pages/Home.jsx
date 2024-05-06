@@ -1,17 +1,29 @@
-import { Button, Col, Container, Row } from 'react-bootstrap';
-import { Example } from '../components';
+import { Container, Row } from 'react-bootstrap';
+import * as S from "../styles/Styles";
 
 function Home() {
-    return (
-        <Container>
-          <Row>
-            <Col lg={3} md={4}>
-              <Button>Test</Button>
-              <Example />
-            </Col>
-          </Row>
-        </Container>
-    )
+  return (
+    <Container>
+      <Row>
+        <S.GameBox to="/battleship">
+          <S.GameBoxBackgroundImage $url="/img/battleship.png" $darken />
+          <S.GameBoxLabel>Battleship</S.GameBoxLabel>
+        </S.GameBox>
+        <S.GameBox to="/blackjack">
+          <S.GameBoxBackgroundImage $url="https://placehold.co/300" $darken />
+          <S.GameBoxLabel>Blackjack</S.GameBoxLabel>
+        </S.GameBox>
+        <S.GameBox to="/wordle">
+          <S.GameBoxBackgroundImage $url="https://placehold.co/300" $darken />
+          <S.GameBoxLabel>Wordle</S.GameBoxLabel>
+        </S.GameBox>
+        <S.GameBox to="/placeholder">
+          <S.GameBoxBackgroundImage $url="https://placehold.co/300" $darken />
+          <S.GameBoxLabel>Placeholder</S.GameBoxLabel>
+        </S.GameBox>
+      </Row>
+    </Container>
+  )
 }
 
 export default Home;
