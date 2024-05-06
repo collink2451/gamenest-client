@@ -13,6 +13,10 @@ function Header() {
     useEffect(() => {
         if (code) {
             dispatch(login({ code }));
+            setSearchParams((p) => {
+                p.delete("code");
+                return p;
+            });
             setInterval(() => {
                 dispatch(checkLogin());
             }, 6300000); // 1h45m
