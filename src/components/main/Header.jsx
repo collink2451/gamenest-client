@@ -44,12 +44,10 @@ function Header() {
                 <Navbar.Text>
                     <span>&nbsp;&nbsp;</span>
                 </Navbar.Text>
-                <Nav.Link>
-                    <Button onClick={() => dispatch(logout())}>Logout</Button>
-                </Nav.Link>
+                <Button variant="outline-primary" onClick={() => dispatch(logout())}>Logout</Button>
             </>;
         }
-        return <Nav.Link><Button onClick={loginWithGitHub}>Login with GitHub</Button></Nav.Link>;
+        return <Button variant="outline-primary" onClick={loginWithGitHub}>Login with GitHub</Button>;
     }
 
     return (
@@ -57,9 +55,14 @@ function Header() {
             <Container>
                 <Navbar.Brand href="/">Lewis Game Nest</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse className="justify-content-end">
-                    <GitHubLoginButton />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link href="/battleship">Battleship</Nav.Link>
+                        <Nav.Link href="/blackjack">Blackjack</Nav.Link>
+                        <Nav.Link href="/wordle">Wordle</Nav.Link>
+                    </Nav>
                 </Navbar.Collapse>
+                <GitHubLoginButton />
             </Container>
         </Navbar>
     );
