@@ -3,17 +3,10 @@ import { Container, Row, Col } from 'react-bootstrap'
 import '../../styles/WordleStyle.css'
 import Letter from './Letter'
 
-const wordApi = 'https://random-word-api.herokuapp.com/word?length=5'
-const defnApi = 'https://api.dictionaryapi.dev/api/v2/entries/en/'      // + word
-
-
 
 const WordleBoard = () => {
 
-
-
     return (
-       
         <Container>
             <Row>
                 <Col></Col>
