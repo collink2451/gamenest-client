@@ -10,16 +10,16 @@ const wordApi = 'https://random-word-api.herokuapp.com/word?lang=en&length=5'
 const defnApi = 'https://api.dictionaryapi.dev/api/v2/entries/en/'      // + word
 
 
-
 const WordleGame = () => {
     const [word, setWord] = useState('?????')
     const [defn, setDefn] = useState([])
-    const [guess, setGuess] = useState("wordy")
     const [isValid, setIsValid] = useState(false)
     const [inGame, setInGame] = useState(false)
-    const [attempt, setAttempt] = useState({ word: 0, letter: 0})
-    const [currLetter, setCurrLetter] = useState([])
-    const [board, setBoard] = useState(DefaultBoard)
+
+    var board = DefaultBoard
+    var attempt = {word: 0, letter: 0}
+    var guess = ""
+    var currLetter = ''
 
     async function getWord() {
         fetch(wordApi)
@@ -54,14 +54,35 @@ const WordleGame = () => {
     }
 
     async function handleKeyDown(event) {
-        const letter = event.key
-        if (letter >= 'a' && letter <= 'z') {
+        const input = event.key
+        if (input === 'Enter') {    // user submits word
+            if (guess.length == 5) {
+                console.log("TODO: submit guess")
+            } else {
+                console.log("TODO: nothing happens")
+            }
+            
+        } else if (input === 'Backspace' || input === 'Delete') {    // user deletes previous letter
+            if (attempt.letter > 0) {
+                console.log("previous", guess, attempt.letter)
+                guess = guess.slice(0, -1)
+                attempt = {word: attempt.word, letter: attempt.letter - 1}
+                console.log("now", guess, attempt.letter)
+            }
+
+        } else if (input >= 'a' && input <= 'z') {
+            // adds letter to current guess/word
+            guess += input
+            console.log("guess", guess)
+
+            // adds letter to board
             const tempBoard = [...board]
-            tempBoard[attempt.word][attempt.letter] = letter.toUpperCase()
-            setBoard(tempBoard)
-            const newNum = attempt.letter + 1
-            setAttempt({word: attempt.word, letter: newNum})
-            console.log(board)
+            console.log("board", board)
+            tempBoard[attempt.word][attempt.letter] = input.toUpperCase()
+            board = tempBoard
+
+            // moves to next letter position
+            attempt = {word: attempt.word, letter: attempt.letter + 1}
             
         } else {
             console.log("invalid input")
@@ -81,9 +102,7 @@ const WordleGame = () => {
             <AppContext.Provider
                 value={{
                     board,
-                    setBoard,
                     attempt,
-                    setAttempt,
                     word
                 }}>
 
