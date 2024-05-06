@@ -9,8 +9,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <StrictMode>
     <Provider store={store}>
-        <App />
-        <ToastContainer position="top-right" toastStyle={{ color: "white", backgroundColor: "#202427" }} />
+      <App />
+      <ToastContainer position="bottom-right" toastStyle={{ color: "white", backgroundColor: "#202427" }} />
     </Provider>
   </StrictMode>,
 );
