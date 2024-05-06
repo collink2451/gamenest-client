@@ -14,7 +14,7 @@ export const GameBox = styled(Link)`
   box-shadow:
     0 0 1px rgb(0 0 0 / 13%),
     0 1px 3px rgb(0 0 0 / 20%);
-  border: 5px solid #ffffff99;
+  border: 5px solid #11111199;
 
   margin: 15px;
 
