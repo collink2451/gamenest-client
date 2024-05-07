@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { BattleshipGameStatus, BattleshipShips, stringToShip } from "../../enums";
-import { checkIntersection } from "../../utils/battleshipHelpers";
+import { checkIntersection } from "../../utils/Battleship/battleshipHelpers";
 import BoardLabelRow from "./BoardLabelRow";
 import BoardRow from "./BoardRow";
 
