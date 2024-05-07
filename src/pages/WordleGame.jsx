@@ -15,6 +15,9 @@ const WordleGame = () => {
     const [defn, setDefn] = useState([])
     const [isValid, setIsValid] = useState(false)
     const [inGame, setInGame] = useState(false)
+    const [boardState, setBoardState] = useState([DefaultBoard])
+
+    const[letter, setLetter] = useState('')
 
     var board = DefaultBoard
     var attempt = {word: 0, letter: 0}
@@ -98,6 +101,7 @@ const WordleGame = () => {
                 console.log("invalid input")
                 }
             }
+            setBoardState(board)
     }
 
     useEffect(() => {
@@ -114,7 +118,8 @@ const WordleGame = () => {
                 value={{
                     board,
                     attempt,
-                    word
+                    word,
+
                 }}>
 
                 <div className="gameArea">
