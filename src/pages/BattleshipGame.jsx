@@ -1,22 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
 import { Board } from '../components/Battleship';
 import { BattleshipGameStatus } from '../enums';
+import { useSocket } from '../modules'; // Update the path according to your file structure
+
 
 const BattleshipGame = () => {
-    const { lobbyId } = useParams();
+    const socket = useSocket();
 
     const [gameState, setGameState] = React.useState(BattleshipGameStatus.SETUP);
-
-    useEffect(() => {
-        verifyUserInLobby(lobbyId);
-        setGameState(BattleshipGameStatus.SETUP);
-    }, [lobbyId]);
-
-    const verifyUserInLobby = (lobbyId) => {
-        console.log(`Verifying user in lobby ${lobbyId}`);
-    };
 
     // Create an empty board full of 1s
 

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { BattleshipGameStatus, BattleshipShips, stringToShip } from "../../enums";
-import { checkIntersection } from "../../utils/battleshipHelpers";
+import { useSocket } from "../../modules";
+import { checkIntersection } from "../../utils/Battleship/battleshipHelpers";
 import BoardLabelRow from "./BoardLabelRow";
 import BoardRow from "./BoardRow";
 
@@ -11,6 +12,15 @@ const Board = ({ board, ships, gameState, onClick }) => {
     const [shipPlaceVertical, setShipPlaceVertical] = React.useState(false);
     const [shipPlaceLocation, setShipPlaceLocation] = React.useState([0, 0]);
     const [selectedShip, setSelectedShip] = React.useState(BattleshipShips.CARRIER);
+    const socket = useSocket();
+    const [isSocketReady, setIsSocketReady] = useState(false);
+
+    // Use useEffect to update the loading state when the socket is ready
+    useEffect(() => {
+        if (socket !== null) {
+            setIsSocketReady(true);
+        }
+    }, [socket]);
 
     function onCellClick(rowIndex, cellIndex) {
         if (gameState === BattleshipGameStatus.SETUP) {
@@ -42,7 +52,16 @@ const Board = ({ board, ships, gameState, onClick }) => {
     }
 
     function submitBoard() {
-        console.log(placedShips);
+        if (isSocketReady === false) {
+            toast.error("Socket is not ready");
+            return;
+        }
+        const message = {
+            type: "initialBoard",
+            ships: placedShips
+        };
+
+        socket.send(JSON.stringify(message));
     }
 
     function onCellMouseOver(rowIndex, cellIndex) {

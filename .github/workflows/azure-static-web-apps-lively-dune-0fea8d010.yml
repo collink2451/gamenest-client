@@ -17,6 +17,7 @@ jobs:
     env:
       REACT_APP_GITHUB_CALLBACK_URL: "https://lively-dune-0fea8d010.4.azurestaticapps.net/"
       REACT_APP_API_URL: "https://lewisgamenest.azurewebsites.net"
+      REACT_APP_WEBSOCKET_URL: "wss://lewisgamenest.azurewebsites.net"
       REACT_APP_GITHUB_CLIENT_ID: ${{ secrets.REACT_APP_GITHUB_CLIENT_ID }}
       REACT_APP_GITHUB_CLIENT_SECRET: ${{ secrets.REACT_APP_GITHUB_CLIENT_SECRET }}
     steps:
@@ -41,6 +42,7 @@ jobs:
         run: 
           echo "REACT_APP_GITHUB_CALLBACK_URL=${{ env.REACT_APP_GITHUB_CALLBACK_URL }}" >> $GITHUB_ENV &&
           echo "REACT_APP_API_URL=${{ env.REACT_APP_API_URL }}" >> $GITHUB_ENV &&
+          echo "REACT_APP_WEBSOCKET_URL=${{ env.REACT_APP_WEBSOCKET_URL }}" >> $GITHUB_ENV &&
           echo "REACT_APP_GITHUB_CLIENT_ID=${{ secrets.REACT_APP_GITHUB_CLIENT_ID }}" >> $GITHUB_ENV &&
           echo "REACT_APP_GITHUB_CLIENT_SECRET=${{ secrets.REACT_APP_GITHUB_CLIENT_SECRET }}" >> $GITHUB_ENV
 
