@@ -25,6 +25,7 @@ const BattleshipSocketProvider = ({ children }) => {
                     lobbyId: lobbyId,
                 };
                 socket.send(JSON.stringify(message));
+                console.log("Connected to server");
             })
 
             // Listen for messages
