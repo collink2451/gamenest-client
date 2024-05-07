@@ -52,13 +52,13 @@
   }
 
   #correct {
-    background-color: greenyellow;
+    background-color: #32FF8C;
   }
   
   #almost {
-    background-color: yellow;
+    background-color: #ECFF74;
   }
   
   #error {
-    background-color: gray;
+    background-color: #CECFC7;
   }
