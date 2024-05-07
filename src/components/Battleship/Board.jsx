@@ -2,6 +2,7 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { BattleshipGameStatus, BattleshipShips, stringToShip } from "../../enums";
+import { useSocket } from "../../modules";
 import { checkIntersection } from "../../utils/Battleship/battleshipHelpers";
 import BoardLabelRow from "./BoardLabelRow";
 import BoardRow from "./BoardRow";
@@ -11,6 +12,7 @@ const Board = ({ board, ships, gameState, onClick }) => {
     const [shipPlaceVertical, setShipPlaceVertical] = React.useState(false);
     const [shipPlaceLocation, setShipPlaceLocation] = React.useState([0, 0]);
     const [selectedShip, setSelectedShip] = React.useState(BattleshipShips.CARRIER);
+    const socket = useSocket();
 
     function onCellClick(rowIndex, cellIndex) {
         if (gameState === BattleshipGameStatus.SETUP) {
@@ -42,7 +44,12 @@ const Board = ({ board, ships, gameState, onClick }) => {
     }
 
     function submitBoard() {
-        console.log(placedShips);
+        const message = {
+            type: "initialBoard",
+            ships: placedShips
+        };
+
+        socket.send(JSON.stringify(message));
     }
 
     function onCellMouseOver(rowIndex, cellIndex) {
