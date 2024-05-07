@@ -1,3 +1,5 @@
+import BattleshipSocketProvider, { useSocket } from "./BattleshipSocketProvider";
 import Main from "./Main";
 
-export { Main };
+export { BattleshipSocketProvider, Main, useSocket };
+
