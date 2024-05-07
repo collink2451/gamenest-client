@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { BattleshipSocketProvider, Main } from "./modules";
+import { Main } from "./modules";
 import {
   BattleshipGame,
   BattleshipLobby,
@@ -31,7 +31,7 @@ function App() {
             <Route path="/" element={<PublicRoute />}>
               <Route path="/" element={<Main />}>
                 <Route path="/battleship">
-                  <Route path="/battleship/:lobbyId" element={<BattleshipSocketProvider children={<BattleshipGame />} />} />
+                  <Route path="/battleship/:lobbyId" element={<BattleshipGame />} />
                   <Route path="/battleship" element={<BattleshipLobby />} />
                 </Route>
                 <Route path="/blackjack">

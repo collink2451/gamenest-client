@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 import { Board } from '../components/Battleship';
 import { BattleshipGameStatus } from '../enums';
-import { useSocket } from '../modules'; // Update the path according to your file structure
+import { useAppSelector, userSelector } from '../redux';
+import { getSocket } from '../utils';
 
 
 const BattleshipGame = () => {
-    const socket = useSocket();
+    const user = useAppSelector(userSelector);
+    const { lobbyId } = useParams();
 
     const [gameState, setGameState] = React.useState(BattleshipGameStatus.SETUP);
+
+    useEffect(() => {
+        if (!lobbyId || !user) return;
+
+        getSocket(lobbyId, user);
+
+    }, [lobbyId, user]);
 
     // Create an empty board full of 1s
 
