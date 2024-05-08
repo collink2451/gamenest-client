@@ -14,12 +14,12 @@ function Home() {
           <S.GameBoxLabel>Blackjack</S.GameBoxLabel>
         </S.GameBox>
         <S.GameBox to="/wordle">
-          <S.GameBoxBackgroundImage $url="https://i.ibb.co/CByZLjC/wordle.png" $darken />
+          <S.GameBoxBackgroundImage $url="/img/wordle/wordle.png" $darken />
           <S.GameBoxLabel>Wordle</S.GameBoxLabel>
         </S.GameBox>
-        <S.GameBox to="/placeholder">
-          <S.GameBoxBackgroundImage $url="https://placehold.co/300" $darken />
-          <S.GameBoxLabel>Placeholder</S.GameBoxLabel>
+        <S.GameBox to="/dotsAndBoxes">
+          <S.GameBoxBackgroundImage $url="/img/dotsAndBoxes/dotsAndBoxes.png" $darken />
+          <S.GameBoxLabel>Dots and Boxes</S.GameBoxLabel>
         </S.GameBox>
       </Row>
     </Container>

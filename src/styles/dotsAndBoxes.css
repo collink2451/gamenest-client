@@ -1,0 +1,51 @@
+#game {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  margin: 0px;
+  max-height: 25px;
+}
+
+.dot {
+  height: 4px;
+  width: 4px !important;
+  padding: 0px;
+  background-color: #000;
+  display: inline-block;
+}
+
+.box {
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+}
+
+.horizContainer {
+  height: 4px;
+  width: 25px;
+  border: 2px;
+  display: inline-block;
+}
+
+.vertContainer {
+  height: 25px;
+  width: 4px;
+  border: 2px;
+  display: inline-block;
+}
+
+#board {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 50px;
+  margin: 10px
+}
+
+#header {
+  padding: 10px 50px;
+  margin: 10px
+}
