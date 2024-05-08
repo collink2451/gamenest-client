@@ -167,7 +167,6 @@ const BlackjackGame = () => {
             <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-end">
             <Nav className="me-auto">
-            <Nav.Link to="/home">Home</Nav.Link>
             <Nav.Link onClick={handleShow1}>How to Play</Nav.Link>
             <Nav.Link onClick={handleShow2}>Player Stats</Nav.Link>
           </Nav>
