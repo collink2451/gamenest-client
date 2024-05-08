@@ -93,6 +93,22 @@ const WordleGame = () => {
 
                 } else if (attempt.word == 5) {
                     attempt.word += 1
+                    if (word != "wordy") {
+                        toast.error('Word was ' + word, {
+                            position: "top-center",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                            });
+                        setTimeout(() => {
+                            window.location.reload()
+                          }, 5000)
+                          return
+                    }
                     toast.error('You lost 😔', {
                         position: "top-center",
                         autoClose: 5000,
