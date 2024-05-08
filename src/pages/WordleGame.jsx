@@ -92,6 +92,7 @@ const WordleGame = () => {
                     
 
                 } else if (attempt.word == 5) {
+                    attempt.word += 1
                     toast.error('You lost 😔', {
                         position: "top-center",
                         autoClose: 5000,
@@ -105,6 +106,7 @@ const WordleGame = () => {
                     setTimeout(() => {
                         window.location.reload()
                       }, 5000)
+                      return
                 
                 } else {
                     attempt = {word: attempt.word + 1, letter: 0}
@@ -145,7 +147,7 @@ const WordleGame = () => {
     useEffect(() => {
        document.addEventListener('keydown', handleKeyDown);
        setBoardState(board)
-      }, [word, attemptWordNum]);
+      }, [word]);
     
     
     return (
@@ -168,7 +170,6 @@ const WordleGame = () => {
                     { inGame &&
                         <div>
                             <WordleBoard />
-                            <h1>{word}</h1>
                         </div>
                     }
                 </div>
