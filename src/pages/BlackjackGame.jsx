@@ -63,7 +63,7 @@ const BlackjackGame = () => {
 
   const startGame = () => {
     if (bet <= balance) {
-      setBalance(balance - bet); // Deduct bet from balance
+      setBalance(balance - bet);
       const newDeck = shuffleDeck(createDeck());
       setPlayerHand([newDeck.pop(), newDeck.pop()]);
       setDealerHand([newDeck.pop(), newDeck.pop()]);
@@ -114,12 +114,12 @@ const BlackjackGame = () => {
     setGameOver(true);
     const playerScore = calculateHandValue(playerHand);
   
-    // Player busts
+    
     if (playerScore > 21) {
       setResult("You busted! You lost!");
-      setBalance(balance); // Deduct bet from balance
+      setBalance(balance); 
     } else {
-      // Player didn't bust
+      
       let dealerScore = calculateHandValue(dealerHand);
       while (dealerScore < 17) {
         dealerHand.push(deck.pop());
@@ -136,14 +136,14 @@ const BlackjackGame = () => {
         setBalance(balance); 
       }
     }
-    setBet(0); // Reset bet amount
+    setBet(0);
   };
 
   const handleBetChange = (e) => {
     const betAmount = parseInt(e.target.value);
     if (!isNaN(betAmount) && betAmount >= 0 && betAmount <= balance) {
       setBet(betAmount);
-      setGameOver(true); // Reset gameOver state when bet is changed
+      setGameOver(true);
     }
   };
 
