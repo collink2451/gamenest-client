@@ -6,7 +6,7 @@ function Home() {
     <Container>
       <Row>
         <S.GameBox to="/battleship">
-          <S.GameBoxBackgroundImage $url="/img/battleship.png" $darken />
+          <S.GameBoxBackgroundImage $url="/img/battleship/battleship.png" $darken />
           <S.GameBoxLabel>Battleship</S.GameBoxLabel>
         </S.GameBox>
         <S.GameBox to="/blackjack">
