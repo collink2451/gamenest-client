@@ -2,18 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../WordleGame";
 
 function Letter({ pos, wordNum }) {
-  const { board, attempt, word, attemptWordNum } = useContext(AppContext)
+  const { board, attempt, word } = useContext(AppContext)
 
-  //const letter = board[wordNum][pos]
-  //var letter = board[wordNum][pos]
-
-  /*
-  async function handleKeyDown(event) {
-    if (wordNum == attempt.word && pos == attempt.letter) {
-      letter = board[wordNum][pos]
-    }
-  }
-  */
   const letter = board[wordNum][pos] 
   const letterState = getState(letter.toLowerCase(), pos, word, wordNum, attempt)
 
@@ -51,5 +41,6 @@ function getState(letter, pos, word, wordNum, attempt) {
     return ''
   } 
 }
+
 
 export default Letter;
