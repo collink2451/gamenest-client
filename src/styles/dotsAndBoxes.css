@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-.row {
+.dotsAndBoxesRow {
   display: flex;
   flex-direction: row;
   margin: 0px;

@@ -128,7 +128,7 @@ const DotsAndBoxesGame = () => {
           }
         }
       }
-      cols.push(<div className="row" key={`row-${i}`}><div className="col">{row}</div></div>);
+      cols.push(<div className="dotsAndBoxesRow row" key={`row-${i}`}><div className="col">{row}</div></div>);
     }
     return <div id="game-board">{cols}</div>;
   };
