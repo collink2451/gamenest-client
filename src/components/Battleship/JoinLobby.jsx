@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-const JoinLobby = ({ onJoinLobby }) => {
+const JoinLobby = () => {
     const [lobbyId, setLobbyId] = useState('');
 
     const handleJoinLobby = () => {
