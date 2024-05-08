@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/dotsAndBoxes.css';
 
 const DotsAndBoxesGame = () => {
@@ -15,7 +15,7 @@ const DotsAndBoxesGame = () => {
   }, [boardSize]);
 
   const initialBoard = () => {
-    let newState = {lineCoordinates: {}, boxColors: {}};
+    let newState = { lineCoordinates: {}, boxColors: {} };
     for (let i = 0; i < 2; i++) {
       for (let j = 0; j < boardSize + 1; j++) {
         for (let k = 0; k < boardSize; k++) {
@@ -54,12 +54,12 @@ const DotsAndBoxesGame = () => {
     if (checkSquare(j, k) === 4) {
       madeSquare = true;
       newBoxColors[`${j},${k}`] = turn === "red" ? "rgba(255,0,0,0.5)" : "rgba(0,0,255,0.5)";
-    } 
+    }
 
     if (checkSquare(j - 1, k) === 4) {
       madeSquare = true;
       newBoxColors[`${j - 1},${k}`] = turn === "red" ? "rgba(255,0,0,0.5)" : "rgba(0,0,255,0.5)";
-    } 
+    }
 
     setBoxColors(newBoxColors);
     if (madeSquare) {
@@ -104,7 +104,7 @@ const DotsAndBoxesGame = () => {
   const untint = (event) => {
     const currentCoord = event.target.dataset.coord;
     if (lineCoordinates[currentCoord] === 0) {
-        console.log("110");
+      console.log("110");
       event.target.style.backgroundColor = "rgb(255,255,255)";
     }
   };
@@ -116,19 +116,19 @@ const DotsAndBoxesGame = () => {
       for (let j = 0; j <= 2 * boardSize; j++) {
         if (i % 2 === 0) {
           if (j % 2 === 0) {
-            row.push(<div className="dot" key={`dot-${i/2}-${j/2}`} />);
+            row.push(<div className="dot" key={`dot-${i / 2}-${j / 2}`} />);
           } else {
-            row.push(<div className="horizContainer" data-coord={`0,${Math.floor(i/2)},${Math.floor(j/2)}`} onClick={fillLine} onMouseEnter={tint} onMouseLeave={untint} key={`h-${i/2}-${j/2}`} />);
+            row.push(<div className="horizContainer" data-coord={`0,${Math.floor(i / 2)},${Math.floor(j / 2)}`} onClick={fillLine} onMouseEnter={tint} onMouseLeave={untint} key={`h-${i / 2}-${j / 2}`} />);
           }
         } else {
           if (j % 2 === 0) {
-            row.push(<div className="vertContainer" data-coord={`1,${Math.floor(j/2)},${Math.floor(i/2)}`} onClick={fillLine} onMouseEnter={tint} onMouseLeave={untint} key={`v-${j/2}-${i/2}`} />);
+            row.push(<div className="vertContainer" data-coord={`1,${Math.floor(j / 2)},${Math.floor(i / 2)}`} onClick={fillLine} onMouseEnter={tint} onMouseLeave={untint} key={`v-${j / 2}-${i / 2}`} />);
           } else {
-            row.push(<div className="box" style={{ backgroundColor: boxColors[`${Math.floor(i/2)},${Math.floor(j/2)}`] }} key={`b-${i/2}-${j/2}`} />);
+            row.push(<div className="box" style={{ backgroundColor: boxColors[`${Math.floor(i / 2)},${Math.floor(j / 2)}`] }} key={`b-${i / 2}-${j / 2}`} />);
           }
         }
       }
-      cols.push(<div className="row" key={`row-${i}`}>{row}</div>);
+      cols.push(<div className="row" key={`row-${i}`}><div className="col">{row}</div></div>);
     }
     return <div id="game-board">{cols}</div>;
   };
