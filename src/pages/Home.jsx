@@ -10,7 +10,7 @@ function Home() {
           <S.GameBoxLabel>Battleship</S.GameBoxLabel>
         </S.GameBox>
         <S.GameBox to="/blackjack">
-          <S.GameBoxBackgroundImage $url="https://placehold.co/300" $darken />
+          <S.GameBoxBackgroundImage $url="https://i.ibb.co/Dw9C9Sj/blackjack.png" $darken />
           <S.GameBoxLabel>Blackjack</S.GameBoxLabel>
         </S.GameBox>
         <S.GameBox to="/wordle">
