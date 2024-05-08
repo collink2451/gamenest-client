@@ -125,6 +125,14 @@ const BattleshipGame = () => {
                     </Col>
                     <Col lg={4} md={4}>
                         <p>
+                            <strong>Lobby Code:</strong>
+                            <br />
+                            {lobbyId}
+                            <br />
+                            <br />
+                            Give this code to another player to let them join your game.
+                            <br />
+                            <br />
                             <strong>Instructions:</strong>
                             <br />
                             Place your ships on the board by clicking on the squares. Right clicking will rotate the ship.

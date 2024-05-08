@@ -7,7 +7,7 @@ const JoinLobby = ({ onJoinLobby }) => {
 
     const handleJoinLobby = () => {
         if (lobbyId.trim() !== '') {
-            onJoinLobby(lobbyId);
+            window.location.href = `/battleship/${lobbyId.toUpperCase()}`;
         } else {
             alert('Please enter the lobby ID');
         }
