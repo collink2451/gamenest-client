@@ -16,7 +16,6 @@ React/TypeScript frontend for the GameNest multi-game platform. Supports multipl
 - **Routing:** React Router
 - **UI:** React Bootstrap, styled-components
 - **Auth:** GitHub OAuth (via [GameNestServer](../GameNestServer))
-- **Deployment:** Azure Static Web Apps
 
 ## Setup
 
@@ -53,4 +52,4 @@ The app will be available at `http://localhost:3000`.
 
 ## Deployment
 
-Deploy to **Azure Static Web Apps** using the included `staticwebapp.config.json`. Connect the GitHub repository in the Azure portal to enable automatic deployments on push.
+Run `npm run build` and serve the `build/` directory with any static hosting provider or web server.
