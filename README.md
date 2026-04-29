@@ -1,4 +1,4 @@
-# GameNest
+# GameNest Client
 
 React/TypeScript frontend for the GameNest multi-game platform. Supports multiple games with GitHub OAuth login and a shared leaderboard.
 
@@ -15,14 +15,14 @@ React/TypeScript frontend for the GameNest multi-game platform. Supports multipl
 - **State:** Redux Toolkit
 - **Routing:** React Router
 - **UI:** React Bootstrap, styled-components
-- **Auth:** GitHub OAuth (via [GameNestServer](../GameNestServer))
+- **Auth:** GitHub OAuth (via [gamenest-server](../gamenest-server))
 
 ## Setup
 
 ### Requirements
 
 - Node.js 18+
-- A running [GameNestServer](../GameNestServer) instance
+- A running [gamenest-server](../gamenest-server) instance
 
 ### Installation
 
@@ -40,7 +40,7 @@ npm start
 
 The app will be available at `http://localhost:3000`.
 
-> By default the app connects to the production backend. To point it at a local GameNestServer, update the API base URL in the source before starting.
+> By default the app connects to the production backend. To point it at a local gamenest-server, update the API base URL in the source before starting.
 
 ## Scripts
 

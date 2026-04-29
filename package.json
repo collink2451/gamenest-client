@@ -1,5 +1,5 @@
 {
-  "name": "game-nest-static",
+  "name": "gamenest-client",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
