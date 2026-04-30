@@ -2,17 +2,7 @@ import React, { useEffect } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Main } from "./modules";
-import {
-  BattleshipGame,
-  BattleshipLobby,
-  BlackjackGame,
-  DotsAndBoxesGame,
-  ErrorPage,
-  Forbidden,
-  Home,
-  PageNotFound,
-  WordleGame
-} from "./pages";
+import { BattleshipGame, BattleshipLobby, ErrorPage, Forbidden, Home, PageNotFound } from "./pages";
 import { PublicRoute } from "./routes";
 import { GlobalStyle } from "./styles";
 import { addWindowClass } from "./utils";
@@ -31,15 +21,8 @@ function App() {
           <Routes>
             <Route path="/" element={<PublicRoute />}>
               <Route path="/" element={<Main />}>
-                <Route path="/battleship">
-                  <Route path="/battleship/:lobbyId" element={<BattleshipGame />} />
-                  <Route path="/battleship" element={<BattleshipLobby />} />
-                </Route>
-                <Route path="/blackjack">
-                  <Route path="/blackjack" element={<BlackjackGame />} />
-                </Route>
-                <Route path="/wordle" element={<WordleGame />} />
-                <Route path="/dotsAndBoxes" element={<DotsAndBoxesGame />} />
+                <Route path="/battleship/:lobbyId" element={<BattleshipGame />} />
+                <Route path="/battleship" element={<BattleshipLobby />} />
                 <Route path="/" element={<Home />} />
               </Route>
             </Route>

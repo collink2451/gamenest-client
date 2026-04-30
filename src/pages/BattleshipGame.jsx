@@ -51,10 +51,10 @@ const BattleshipGame = () => {
 
     const onClick = (rowIndex, cellIndex) => {
         // make sure it is our turn
-        if (gameData.player1Turn && gameData.player1 !== user.user) {
+        if (gameData.player1Turn && gameData.player1 !== user) {
             toast.error("It is not your turn");
             return;
-        } else if (!gameData.player1Turn && gameData.player2 !== user.user) {
+        } else if (!gameData.player1Turn && gameData.player2 !== user) {
             toast.error("It is not your turn");
             return;
         }
@@ -63,7 +63,7 @@ const BattleshipGame = () => {
         socket.send(JSON.stringify({
             type: "fire",
             lobbyId: lobbyId,
-            player: user.user,
+            player: user,
             coordinates: [rowIndex, cellIndex]
         }));
     }
@@ -93,7 +93,7 @@ const BattleshipGame = () => {
     let isPlayerOne = true;
     let player2 = "Waiting for player";
     if (gameData) {
-        isPlayerOne = gameData.player1 === user.user;
+        isPlayerOne = gameData.player1 === user;
         if (gameData.player2 !== null) player2 = gameData.player2;
         board = gameData.player1Turn ? gameData?.player2Board : gameData?.player1Board;
     } else {

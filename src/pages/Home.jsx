@@ -9,21 +9,9 @@ function Home() {
           <S.GameBoxBackgroundImage $url="/img/battleship/battleship.png" $darken />
           <S.GameBoxLabel>Battleship</S.GameBoxLabel>
         </S.GameBox>
-        <S.GameBox to="/blackjack">
-          <S.GameBoxBackgroundImage $url="https://i.ibb.co/Dw9C9Sj/blackjack.png" $darken />
-          <S.GameBoxLabel>Blackjack</S.GameBoxLabel>
-        </S.GameBox>
-        <S.GameBox to="/wordle">
-          <S.GameBoxBackgroundImage $url="/img/wordle/wordle.png" $darken />
-          <S.GameBoxLabel>Wordle</S.GameBoxLabel>
-        </S.GameBox>
-        <S.GameBox to="/dotsAndBoxes">
-          <S.GameBoxBackgroundImage $url="/img/dotsAndBoxes/dotsAndBoxes.png" $darken />
-          <S.GameBoxLabel>Dots and Boxes</S.GameBoxLabel>
-        </S.GameBox>
       </Row>
     </Container>
-  )
+  );
 }
 
 export default Home;

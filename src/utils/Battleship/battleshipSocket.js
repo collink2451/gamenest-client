@@ -4,14 +4,12 @@ let connection = null;
 
 const getSocket = (lobbyId, user) => {
     if (user && !connection) {
-        const socket = new WebSocket(`${process.env.REACT_APP_WEBSOCKET_URL}?username=${user.user}&lobbyId=${lobbyId}`);
+        const socket = new WebSocket(`${process.env.REACT_APP_WEBSOCKET_URL}?username=${user}&lobbyId=${lobbyId}`);
 
-        // Connection opened
-        socket.addEventListener("open", (event) => {
+        socket.addEventListener("open", () => {
             console.log("Connected to server");
         });
 
-        // Error handling
         socket.addEventListener("error", (error) => {
             console.log("WebSocket error:", error);
             toast.error("WebSocket connection error. Please try again later.");
@@ -22,10 +20,9 @@ const getSocket = (lobbyId, user) => {
             toast.error("WebSocket connection closed. Please try again later.");
         });
 
-        // Save the socket reference
         connection = socket;
     }
     return connection;
-}
+};
 
 export default getSocket;
