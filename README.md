@@ -1,21 +1,18 @@
 # GameNest Client
 
-React/TypeScript frontend for the GameNest multi-game platform. Supports multiple games with GitHub OAuth login and a shared leaderboard.
+React frontend for the GameNest multi-game platform. Currently features Battleship — a 2-player real-time game over WebSockets.
 
 ## Games
 
-- **Battleship** — 2-player real-time game via WebSockets
-- **Wordle** — Word guessing game
-- **Dots and Boxes** — Classic grid game
-- **Blackjack** — Card game
+- **Battleship** — 2-player real-time game via WebSockets with ship placement, turn-based firing, and win detection
 
 ## Tech Stack
 
-- **Framework:** React (TypeScript)
+- **Framework:** React (JavaScript)
 - **State:** Redux Toolkit
 - **Routing:** React Router
 - **UI:** React Bootstrap, styled-components
-- **Auth:** GitHub OAuth (via [gamenest-server](../gamenest-server))
+- **Backend:** [gamenest-server](../gamenest-server)
 
 ## Setup
 
@@ -32,15 +29,20 @@ React/TypeScript frontend for the GameNest multi-game platform. Supports multipl
 npm install
 ```
 
-2. Start the development server:
+2. Create a `.env` file in the root directory:
+
+```env
+REACT_APP_API_URL=""
+REACT_APP_WEBSOCKET_URL=ws://localhost:5003
+```
+
+3. Start the development server:
 
 ```bash
 npm start
 ```
 
 The app will be available at `http://localhost:3000`.
-
-> By default the app connects to the production backend. To point it at a local gamenest-server, update the API base URL in the source before starting.
 
 ## Scripts
 
